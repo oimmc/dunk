@@ -64,7 +64,7 @@ export default class Canvas {
 		let ox = 0.5 * a,
 			oy = 0.8 * b
 
-		this.ctx.fillStyle = '#ddd'
+		// this.ctx.fillStyle = '#ddd'
 		this.ctx.save()
 		this.ctx.translate(x, y)
 		this.ctx.rotate(-5 * Math.PI / 180)
@@ -77,7 +77,7 @@ export default class Canvas {
 		this.ctx.bezierCurveTo(-a, oy, -ox, b, 0, b)
 
 		this.ctx.closePath()
-		this.ctx.fill()
+		// this.ctx.fill()
 		this.ctx.stroke()
 		this.ctx.restore()
 	}
