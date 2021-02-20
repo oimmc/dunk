@@ -1,13 +1,11 @@
 import Canvas from './Canvas'
 import Rebound from './Rebound'
-import Guy from './Guy'
-import Ball from './Ball'
+import Person from './Guy'
 
 class Dunk {
 	canvas: Canvas
 	rebound: Rebound
-	guy: Guy
-	ball: Ball
+	person: Person
 	
 	constructor() {
 		
@@ -24,11 +22,7 @@ class Dunk {
 			canvas: this.canvas
 		})
 
-		this.guy = new Guy({
-			canvas: this.canvas
-		})
-
-		this.ball = new Ball({
+		this.person = new Person({
 			canvas: this.canvas
 		})
 	}
@@ -37,11 +31,9 @@ class Dunk {
 		setInterval(() => {
 			this.canvas.clearRect()
 
-			this.ball.move()
 			this.rebound.draw()
-			this.guy.move()
-			
-		}, 200)
+			this.person.move()
+		}, 1000)
 	}
 }
 
