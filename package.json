@@ -7,8 +7,23 @@
     "start": "cross-env rollup -w -c rollup.config.dev.js",
     "build": "cross-env rollup -c rollup.config.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oimmc/dunk.git"
+  },
+  "keywords": [
+    "dunk",
+    "basketball",
+    "扣篮",
+    "灌篮",
+    "篮球"
+  ],
+  "author": "oimmc",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oimmc/dunk/issues"
+  },
+  "homepage": "https://github.com/oimmc/dunk#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-transform-runtime": "^7.12.13",
