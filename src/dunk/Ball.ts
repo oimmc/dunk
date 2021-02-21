@@ -12,7 +12,7 @@ export default class Ball{
     //篮球起点
     x = 215
     y = 215
-    //起点
+    //曲线起点
     x1 = 215
     y1 = 215
     // 控制点1
@@ -57,7 +57,7 @@ export default class Ball{
         this.ctx.fillStyle = '#808080'
         this.ctx.fill()
 
-        this.t += 0.08
+        this.t += 0.06
 	}
 
 	move() {
