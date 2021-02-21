@@ -16,7 +16,7 @@ class Dunk {
 		})
 
 		this.init()
-		this.run()
+		this.draw()
 	}
 
 	init() {
@@ -33,7 +33,7 @@ class Dunk {
 		})
 	}
 
-	run() {
+	draw() {
 		setInterval(() => {
 			this.canvas.clearRect()
 
