@@ -36,6 +36,7 @@ export default class Canvas {
 		this.el.width = width || 300
 		this.el.height = height || 300
 		this.el.style.background = '#ddd'
+		this.el.style.border = '1px solid #bbb'
 		this.el.style.display = 'block'
 		this.el.style.margin = '0 auto'
 	}
