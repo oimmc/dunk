@@ -33,6 +33,16 @@ export default class Guy {
     body_x = 30
     body_y = 196
 
+	// 右胳膊
+	// this.ctx.moveTo(42, 206)
+	// this.ctx.lineTo(56, 200)
+	// // this.ctx.lineTo(56, 175)
+	// this.ctx.lineTo(50, 175)
+	// TODO 弧度
+	arm_l_end_x = 48
+	arm_r_end_x = 46
+	arm_right = [[42, 206], [56, 200], [50, 175]] //[[start], [middle], [end]]
+
     //曲线起点
     x1 = 41
     y1 = 246
@@ -70,6 +80,7 @@ export default class Guy {
 		
 		// this.ctx.translate(this.dx, this.dy)
 		if (this.t > 1) {
+			// 初始化
             this.t = 0
 
 			this.head_x = 38
@@ -77,6 +88,9 @@ export default class Guy {
 
             this.body_x = 30
             this.body_y = 196
+
+			this.arm_l_end_x = 48
+			this.arm_r_end_x = 46
             return
         }
 
@@ -89,10 +103,11 @@ export default class Guy {
 
 	drawBody() {
 		// 头
-		const {x, y} = this.position(this.head_x, this.head_y, this.cx1, this.cy1, this.cx2, this.cy2, this.x2, this.y2)
-		this.head_x = x
-		this.head_y = y
-		this.canvas.bezierElliptic(this.head_x, this.head_y, 10, 10)
+		// const {x, y} = this.position(this.head_x, this.head_y, this.cx1, this.cy1, this.cx2, this.cy2, this.x2, this.y2)
+		// this.head_x = x
+		// this.head_y = y
+		// this.canvas.bezierElliptic(this.head_x, this.head_y, 10, 10)
+		this.canvas.bezierElliptic(38, 184, 10, 10)
 
 		//贝塞尔曲线 身体
 		this.ctx.fillStyle = 'red'
@@ -144,30 +159,48 @@ export default class Guy {
 		this.ctx.lineCap = 'round'
 		this.ctx.lineJoin = 'round'
 		this.ctx.beginPath()
+		// 左胳膊
+		// this.ctx.moveTo(48, 200)
+		if (this.arm_l_end_x > 54) {
+			this.arm_l_end_x = 54
+		}
 		this.ctx.moveTo(48, 200)
 		this.ctx.lineTo(52, 196)
-		this.ctx.lineTo(54, 176)
+		// this.ctx.lineTo(54, 176)
+		this.ctx.lineTo(this.arm_l_end_x, 176)
+		// 右胳膊
 		this.ctx.moveTo(42, 206)
 		this.ctx.lineTo(56, 200)
-		this.ctx.lineTo(56, 175)
+		// this.ctx.lineTo(56, 175)
+		if (this.arm_r_end_x > 56) {
+			this.arm_r_end_x = 56
+		}
+		this.ctx.lineTo(this.arm_r_end_x, 175)
 		this.ctx.stroke()
 
-		// 腿
 		this.ctx.lineCap = 'round'
 		this.ctx.lineJoin = 'round'
+		// 左腿
 		this.ctx.beginPath()
 		this.ctx.moveTo(40, 251)
-		this.ctx.lineTo(40, 264)
-		this.ctx.lineTo(28, 278)
+		this.ctx.lineTo(40, 270)
+		this.ctx.lineTo(28, 292)
+		// 左脚
+		this.ctx.lineTo(32, 292)
+		// 右腿
 		this.ctx.moveTo(45, 251)
-		this.ctx.lineTo(48, 262)
-		this.ctx.lineTo(44, 278)
+		this.ctx.lineTo(48, 270)
+		this.ctx.lineTo(44, 292)
+		// 右脚
+		this.ctx.lineTo(48, 292)
 		this.ctx.stroke()
 	}
 
 	move() {
 		this.draw()
-		// this.t += 0.08
+		this.t += 0.06
+		this.arm_r_end_x += 12
+		this.arm_l_end_x += 12
 		// this.dx += 10
 		// this.dy += 10
 		// this.x += 10
