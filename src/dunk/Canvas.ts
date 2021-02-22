@@ -36,6 +36,7 @@ export default class Canvas {
 		this.el.width = width || 300
 		this.el.height = height || 300
 		this.el.style.background = '#ddd'
+		this.el.style.border = '1px solid #bbb'
 		this.el.style.display = 'block'
 		this.el.style.margin = '0 auto'
 	}
@@ -60,9 +61,9 @@ export default class Canvas {
 		isFill ? this.ctx.fill() : this.ctx.stroke()
 	}
 
-	bezierElliptic(x: number, y: number, a: number, b: number) {
-		let ox = 0.5 * a,
-			oy = 0.8 * b
+	bezierElliptic(x: number, y: number, a: number, b: number, step_x = 0.5, step_y = 0.8, fill = false) {
+		let ox = step_x * a,
+			oy = step_y * b
 
 		// this.ctx.fillStyle = '#ddd'
 		this.ctx.save()
@@ -77,8 +78,7 @@ export default class Canvas {
 		this.ctx.bezierCurveTo(-a, oy, -ox, b, 0, b)
 
 		this.ctx.closePath()
-		// this.ctx.fill()
-		this.ctx.stroke()
+		fill ? this.ctx.fill() : this.ctx.stroke()
 		this.ctx.restore()
 	}
 	

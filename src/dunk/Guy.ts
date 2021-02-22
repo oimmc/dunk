@@ -24,8 +24,8 @@ export default class Guy {
 	canvas: Canvas
 	ctx: CanvasRenderingContext2D
 
-	head_x = 40
-	head_y = 180
+	head_x = 38
+	head_y = 184
 	dx = 0
 	dy = 0
 
@@ -63,16 +63,17 @@ export default class Guy {
 
 	draw() {
 		//轨迹线
-        this.ctx.beginPath()
-        this.ctx.moveTo(41, 246)
-        this.ctx.bezierCurveTo(this.cx1, this.cy1, this.cx2, this.cy2, this.x2, this.y2)
-        this.ctx.stroke()
+        // this.ctx.beginPath()
+        // this.ctx.moveTo(41, 246)
+        // this.ctx.bezierCurveTo(this.cx1, this.cy1, this.cx2, this.cy2, this.x2, this.y2)
+		// this.ctx.stroke()
+		
 		// this.ctx.translate(this.dx, this.dy)
 		if (this.t > 1) {
             this.t = 0
 
-			this.head_x = 40
-			this.head_y = 180
+			this.head_x = 38
+			this.head_y = 184
 
             this.body_x = 30
             this.body_y = 196
@@ -82,52 +83,86 @@ export default class Guy {
 		// this.x = this.x1 * Math.pow((1 - this.t), 3) + 3 * this.cx1 * this.t * Math.pow((1 - this.t), 2) + 3 * this.cx2 * Math.pow(this.t, 2) * (1 - this.t) + this.x2 * Math.pow(this.t, 3)
         // this.y = this.y1 * Math.pow((1 - this.t), 3) + 3 * this.cy1 * this.t * Math.pow((1 - this.t), 2) + 3 * this.cy2 * Math.pow(this.t, 2) * (1 - this.t) + this.y2 * Math.pow(this.t, 3)
 
-		this.drawHead()
 		this.drawBody()
 
 	}
 
-	drawHead() {
+	drawBody() {
+		// 头
 		const {x, y} = this.position(this.head_x, this.head_y, this.cx1, this.cy1, this.cx2, this.cy2, this.x2, this.y2)
 		this.head_x = x
 		this.head_y = y
-		this.canvas.bezierElliptic(this.head_x, this.head_y, 10, 13)
-	}
+		this.canvas.bezierElliptic(this.head_x, this.head_y, 10, 10)
 
-	drawBody() {
-		//贝塞尔曲线 人物
-		const {x, y} = this.position(this.body_x, this.body_y, this.cx1, this.cy1, this.cx2, this.cy2, this.x2, this.y2)
-		this.body_x = x
-		this.body_y = y
-		this.ctx.beginPath()
-		this.ctx.rect(this.body_x, this.body_y, 20, 30)
-		this.ctx.fillStyle = '#09c'
-		this.ctx.fill()
+		//贝塞尔曲线 身体
+		this.ctx.fillStyle = 'red'
+		this.canvas.bezierElliptic(40, 216, 10, 20, 1, 0.9, true)
+		// const {x, y} = this.position(this.body_x, this.body_y, this.cx1, this.cy1, this.cx2, this.cy2, this.x2, this.y2)
+		// this.body_x = x
+		// this.body_y = y
+		// this.ctx.beginPath()
+		// this.ctx.rect(this.body_x, this.body_y, 20, 30)
+		// this.ctx.fillStyle = '#09c'
+		// this.ctx.fill()
 
-		const body = document.createElement('canvas')
-		const ctx = body.getContext('2d')
-		body.width = 300
-		body.height = 300
-		ctx.beginPath()
-		ctx.fillStyle = 'red'
-		ctx.rect(0, 0, 20, 30)
-		ctx.fill()
-		this.ctx.drawImage(body, 30, 30)
+		// const body = document.createElement('canvas')
+		// const ctx = body.getContext('2d')
+		// body.width = 300
+		// body.height = 300
+		// ctx.beginPath()
+		// ctx.fillStyle = 'red'
+		// ctx.rect(0, 0, 20, 30)
+		// ctx.fill()
+		// this.ctx.drawImage(body, 30, 30)
 
 		// const path = new Path2D()
 		// path.moveTo(220, 60)
 		// path.arc(170, 60, 50, 0, 2 * Math.PI)
 		// this.ctx.stroke(path)
 
-		this.ctx.lineWidth = 2
+		// 裤子
+		// this.ctx.beginPath()
+		// this.ctx.rect(34, 236, 13, 10)
+		// this.ctx.fillStyle = '#007fff'
+		// this.ctx.fill()
+		this.ctx.fillStyle = '#007fff'
+		this.canvas.bezierElliptic(42, 243, 9, 6, 1, 1, true)
+		this.ctx.fillStyle = 'none'
+
+		// 气泡
+		// this.ctx.beginPath()
+		// this.ctx.moveTo(75, 25)
+		// this.ctx.quadraticCurveTo(25, 25, 25, 62.5)
+		// this.ctx.quadraticCurveTo(25, 100, 50, 100)
+		// this.ctx.quadraticCurveTo(50, 120, 30, 125)
+		// this.ctx.quadraticCurveTo(60, 120, 65, 100)
+		// this.ctx.quadraticCurveTo(125, 100, 125, 62.5)
+		// this.ctx.quadraticCurveTo(125, 25, 75, 25)
+		// this.ctx.stroke()
+
+		// 胳膊
 		this.ctx.lineCap = 'round'
 		this.ctx.lineJoin = 'round'
 		this.ctx.beginPath()
-		this.ctx.moveTo(10,10)
-		this.ctx.lineTo(200, 100)
-		this.ctx.lineTo(250,10)
+		this.ctx.moveTo(48, 200)
+		this.ctx.lineTo(52, 196)
+		this.ctx.lineTo(54, 176)
+		this.ctx.moveTo(42, 206)
+		this.ctx.lineTo(56, 200)
+		this.ctx.lineTo(56, 175)
 		this.ctx.stroke()
-		this.ctx.lineWidth = 1
+
+		// 腿
+		this.ctx.lineCap = 'round'
+		this.ctx.lineJoin = 'round'
+		this.ctx.beginPath()
+		this.ctx.moveTo(40, 251)
+		this.ctx.lineTo(40, 264)
+		this.ctx.lineTo(28, 278)
+		this.ctx.moveTo(45, 251)
+		this.ctx.lineTo(48, 262)
+		this.ctx.lineTo(44, 278)
+		this.ctx.stroke()
 	}
 
 	move() {
