@@ -96,9 +96,9 @@ export default class Ball{
         //贝塞尔曲线 篮球轨迹2
         this.ctx.beginPath()
         this.ctx.arc(this.xx, this.yy, 10, 0, 2 * Math.PI)
-        this.ctx.fillStyle = '#808080'
+        this.ctx.fillStyle = '#633'
         this.ctx.fill()
-        this.ctx.strokeStyle = 'red'
+        this.ctx.strokeStyle = '#339966'
 		this.ctx.stroke()
 		this.ctx.strokeStyle = '#000'
 	}
