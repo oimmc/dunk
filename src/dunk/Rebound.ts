@@ -28,7 +28,7 @@ export default class Rebounds {
 	// 地面
 	drawGround() {
 		this.ctx.beginPath()
-		this.ctx.moveTo(0, 290)
+		this.ctx.moveTo(0, 298)
 		this.ctx.lineTo(this.canvas.width, 280)
 		this.ctx.stroke()
 	}
