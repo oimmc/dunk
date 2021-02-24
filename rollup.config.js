@@ -1,3 +1,5 @@
+// process.env.NODE_ENV = 'development'
+
 import typescript from 'rollup-plugin-typescript2'
 import rollupFileSize from 'rollup-plugin-filesize'
 import babel from '@rollup/plugin-babel'

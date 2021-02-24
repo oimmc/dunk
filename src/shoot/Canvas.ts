@@ -2,9 +2,6 @@
 
 export interface CanvasProps {
 	el: string
-	width?: number
-	height?: number
-	hue?: number
 }
 
 export default class Canvas {
@@ -28,13 +25,13 @@ export default class Canvas {
 	}
 	
 	constructor(props: CanvasProps) {
-		const { el, width, height } = props
+		const { el } = props
 
-		this.el = document.querySelector(el) as HTMLCanvasElement
+		this.el = document.querySelector(el)
 		this.ctx = this.el.getContext('2d')
 		
-		this.el.width = width || 375
-		this.el.height = height || 300
+		this.el.width = 375
+		this.el.height = 300
 		this.el.style.background = '#ddd'
 		this.el.style.border = '1px solid #bbb'
 		this.el.style.display = 'block'

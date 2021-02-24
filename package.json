@@ -36,7 +36,6 @@
     "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.3",
     "rollup": "^2.38.4",
-    "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-filesize": "^9.1.0",
     "rollup-plugin-livereload": "^2.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",

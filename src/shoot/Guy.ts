@@ -1,5 +1,4 @@
 import Canvas from './Canvas'
-import { requestAnimationFrame, cancelAnimationFrame } from '../utils'
 
 interface GuyProps {
 	canvas: Canvas
@@ -12,26 +11,26 @@ export default class Guy {
 	head_x = 38
 	head_y = 184
 
-    //body起点
-    body_x = 30
-    body_y = 196
+	//body起点
+	body_x = 30
+	body_y = 196
 
 	// 胳膊
 	arm_r_end_x = 46
 	arm_l_end_x = 48
 
-    //起点
-    x1 = 41
+	//起点
+	x1 = 41
 	y1 = 246
 	//终点
 	x2 = 198
 	y2 = 128
-    // 控制点1
+	// 控制点1
 	cx1 = 186
-    cy1 = 254
-    // 控制点2
-    cx2 = 120
-    cy2 = 27
+	cy1 = 254
+	// 控制点2
+	cx2 = 120
+	cy2 = 27
 
 	t = 0
 
@@ -57,8 +56,8 @@ export default class Guy {
 
 	draw() {
 		if (this.t > 1) {
-            return this.init()
-        }
+			return this.init()
+		}
 
 		// 头
 		this.canvas.bezierElliptic(38, 184, 10, 10)

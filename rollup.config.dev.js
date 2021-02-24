@@ -5,7 +5,6 @@ import typescript from 'rollup-plugin-typescript2'
 const serve = require('rollup-plugin-serve')
 import livereload from 'rollup-plugin-livereload'
 const replace = require('@rollup/plugin-replace')
-// import { eslint } from 'rollup-plugin-eslint'
 import nodeResolve from 'rollup-plugin-node-resolve'
 
 const resolveFile = function(filePath) {
@@ -41,9 +40,6 @@ export default {
 		typescript({
 			tsconfig: './tsconfig.json'
 		}),
-		// eslint({
-		// 	fix: false
-		// }),
 		replace({
 			'process.env.NODE_ENV': JSON.stringify( 'development' )
 		}),
