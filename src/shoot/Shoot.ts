@@ -3,7 +3,7 @@ import Rebound from './Rebound'
 import Guy from './Guy'
 import Ball from './Ball'
 
-class Dunk {
+export default class Court {
 	canvas: Canvas
 	rebound: Rebound
 	guy: Guy
@@ -42,14 +42,15 @@ class Dunk {
 			this.guy.move()
 			
 		}, 200)
+
+		// const update = () => {
+		// 	let animFrame = requestAnimationFrame(update)
+		// 	this.canvas.clearRect()
+
+		// 	this.ball.move()
+		// 	this.rebound.draw()
+		// 	this.guy.move()
+		// }
+		// update()
 	}
 }
-
-const dunk = new Dunk()
-
-// setTimeout(() => {
-// 	dunk.run()
-// }, 500)
-
-// module.exports = Dunk
-
