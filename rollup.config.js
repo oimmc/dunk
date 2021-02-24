@@ -4,34 +4,30 @@ import babel from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
-// import { uglify } from 'rollup-plugin-uglify'
-// import { terser } from "rollup-plugin-terser"
+import { terser } from 'rollup-plugin-terser'
  
 export default {
-    input: './src/dunk/index.ts',
-    output: [
+	input: './src/shoot/index.ts',
+	output: [
 		{
-			file: 'dist/dunk.umd.js',
+			file: 'build/shoot.umd.js',
 			format: 'umd',
-			name: 'Dunk',
-			banner: '/** dunk.umd.js */'
+			name: 'Shoot'
 		},
 		{
-			file: 'dist/dunk.esm.js',
-			format: 'esm',
-			banner: '/** dunk.esm.js */'
+			file: 'build/shoot.esm.js',
+			format: 'esm'
 		},
 		{
-			file: 'dist/dunk.cjs.js',
-			banner: '/** dunk.cjs.js */'
+			file: 'build/shoot.cjs.js'
 		}
 	],
-    plugins: [
+	plugins: [
 		resolve(),
 		commonjs(),
 		json(),
 		typescript({
-        	tsconfig: './tsconfig.json',
+			tsconfig: './tsconfig.json'
 		}),
 		rollupFileSize(),
 		babel({
@@ -39,7 +35,6 @@ export default {
 			babelHelpers: 'runtime',
 			exclude: ['node_modules/**']
 		}),
-		// uglify()
-		// terser()
-    ]
+		terser()
+	]
 }

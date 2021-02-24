@@ -42,14 +42,27 @@ class Dunk {
 			this.guy.move()
 			
 		}, 200)
+
+		// const update = () => {
+		// 	let animFrame = requestAnimationFrame(update)
+		// 	this.canvas.clearRect()
+
+		// 	this.ball.move()
+		// 	this.rebound.draw()
+		// 	this.guy.move()
+		// }
+		// update()
 	}
 }
 
 const dunk = new Dunk()
 
-// setTimeout(() => {
-// 	dunk.run()
-// }, 500)
+
+// update() {
+// 	const update = () => {
+// 		let animFrame = requestAnimationFrame(update)
+// 	}
+// 	update()
+// }
 
 // module.exports = Dunk
-

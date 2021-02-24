@@ -1,4 +1,3 @@
-import { requestAnimationFrame, cancelAnimationFrame } from '../utils'
 import Canvas from './Canvas'
 
 export interface ReboundsProps {
@@ -8,13 +7,10 @@ export interface ReboundsProps {
 export default class Rebounds {
 	canvas: Canvas
 	ctx: CanvasRenderingContext2D
-	x = 200
-	y = 50
 
 	constructor(props: ReboundsProps) {
 		const { canvas } = props
 		this.canvas = canvas
-		// this.canvas.drawLine(this.x, this.y)
 		this.ctx = this.canvas.getCtx()
 		this.draw()
 	}
@@ -51,7 +47,6 @@ export default class Rebounds {
 		this.ctx.lineTo(210, 32)
 		this.ctx.lineTo(210, 65)
 		
-		// this.ctx.closePath()
 		this.ctx.stroke()
 		this.ctx.restore()
 	}
@@ -59,11 +54,4 @@ export default class Rebounds {
 	drawBasketRing() {
 		this.canvas.bezierElliptic(215, 60, 20, 4)
 	}
-
-	// update() {
-	// 	const update = () => {
-	// 		let animFrame = requestAnimationFrame(update)
-	// 	}
-	// 	update()
-	// }
 }

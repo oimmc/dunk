@@ -13,28 +13,24 @@ const resolveFile = function(filePath) {
 }
 
 export default {
-	input: './src/dunk/index.ts',
+	input: './src/shoot/index.ts',
 	output: [
 		{
-			file: 'dist/dunk.umd.js',
+			file: 'dist/shoot.umd.js',
 			format: 'umd',
-			name: 'Dunk',
-			banner: '/** dunk.umd.js */'
+			name: 'Shoot'
 		},
 		{
-			file: 'dist/dunk.iife.js',
+			file: 'dist/shoot.iife.js',
 			format: 'iife',
-			name: 'Dunk',
-			banner: '/** dunk.iife.js */'
+			name: 'Shoot'
 		},
 		{
-			file: 'dist/dunk.esm.js',
-			format: 'esm',
-			banner: '/** dunk.esm.js */'
+			file: 'dist/shoot.esm.js',
+			format: 'esm'
 		},
 		{
-			file: 'dist/dunk.cjs.js',
-			banner: '/** dunk.cjs.js */'
+			file: 'dist/shoot.cjs.js'
 		}
 	],
 	watch: {
@@ -43,8 +39,11 @@ export default {
 	plugins: [
 		nodeResolve(),
 		typescript({
-        	tsconfig: './tsconfig.json',
+			tsconfig: './tsconfig.json'
 		}),
+		// eslint({
+		// 	fix: false
+		// }),
 		replace({
 			'process.env.NODE_ENV': JSON.stringify( 'development' )
 		}),
